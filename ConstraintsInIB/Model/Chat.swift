@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum UsernameType: String {
+    case Me = "Me", Support = "Support"
+}
+
 struct Chat: Decodable {
     var username: String
     var message: String

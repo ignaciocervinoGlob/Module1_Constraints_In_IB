@@ -18,7 +18,11 @@ enum Errors: Error {
     case genericError
 }
 
-class MessageManager {
+protocol MessageManagerProtocol {
+    func retrieveFromJson(onCompletion: @escaping (Result<[Chat], Errors>) -> Void)
+}
+
+class MessageManager: MessageManagerProtocol {
     
     func retrieveFromJson(onCompletion: @escaping (Result<[Chat], Errors>) -> Void) {
         

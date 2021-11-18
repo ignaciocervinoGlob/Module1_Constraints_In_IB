@@ -9,7 +9,7 @@ import UIKit
 
 class ChatViewController: UIViewController {
 
-    @IBOutlet weak var  chatTableView: UITableView!
+    @IBOutlet weak var chatTableView: UITableView!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var chatActivityIndicator: UIActivityIndicatorView!
     
@@ -65,7 +65,7 @@ extension ChatViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let message = self.messages?[indexPath.row] else { return UITableViewCell() }
-        if message.username == "Me" {
+        if message.username == UsernameType.Me.rawValue {
             let cellReuseIdentifier = ChatSenderTableViewCell.getReuseIdentifier()
             var cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? ChatSenderTableViewCell
             if cell == nil {
